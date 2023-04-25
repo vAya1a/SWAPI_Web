@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Pilot;
 use App\Models\Starship;
 use App\Models\PilotStarship;
-use App\User;
+use App\Models\User;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
