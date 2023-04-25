@@ -102,7 +102,7 @@ class GetStarship extends Command
                     $starship->manufacturer = $data->results[$i]->manufacturer;
 
                     if($data->results[$i]->cost_in_credits == 'unknown'){
-                        $starship->credits = NULL;//ESTO ES UN PROBLEMON, COLEGA. Y SE VA A RESOLVER CON VARCHAR, YEAH BOII
+                        $starship->credits = NULL;//ESTO ES UN PROBLEMA, Y SE VA A RESOLVER CON VARCHAR
                     }else{
                         $starship->credits = $data->results[$i]->cost_in_credits;
                     }
