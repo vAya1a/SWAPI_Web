@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Models\Starship;
+Use App\Models\PilotStarship;
 
 class StarshipController extends Controller
 {
