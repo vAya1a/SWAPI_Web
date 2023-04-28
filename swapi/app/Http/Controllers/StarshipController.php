@@ -87,4 +87,21 @@ class StarshipController extends Controller
         $starship->delete();
         return response()->json(['message' => 'Starship eliminado correctamente'], 200);
     }
+
+    //MANDA UN JSON DE LOS PILOTOS ASOCIADOS AL ID DE UNA NAVE
+    public function getShipPilots($id){
+
+        $data = PilotStarship::where(["id_starship"=>$id])->get();
+        foreach( $data as $pilotShip){
+          $pilotShip->pilot=$pilotShip->getPilotbyId($pilotShip->id_pilot);
+        }
+        return response()->json($data, 200);
+      }
+
+      //MANDA UN JSON CON LA RELACION DE PILOTOS Y NAVES
+    public function getPilotShip(){
+        $data = PilotStarship::get();
+        return response()->json($data, 200);
+      }
+  
 }
