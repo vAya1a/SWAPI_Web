@@ -62,7 +62,7 @@ class PilotController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $piloto = Pilotos::find($id);
+        $piloto = Pilot::find($id);
         if(!$piloto){
             return response()->json(['message' => 'Piloto no encontrado'], 404);
         }
@@ -78,7 +78,7 @@ class PilotController extends Controller
      */
     public function destroy(string $id)
     {
-        $piloto = Pilotos::find($id);
+        $piloto = Pilot::find($id);
         if(!$piloto){
             return response()->json(['message' => 'Piloto no encontrado'], 404);
         }
