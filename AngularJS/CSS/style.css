@@ -89,3 +89,9 @@ table {
   .btn-delete:hover {
     background-color: darkred;
   }
+
+  h1{
+    color: yellow; 
+    font-family: 'Star Wars', sans-serif; 
+    
+  }
