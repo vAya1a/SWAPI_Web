@@ -93,5 +93,5 @@ table {
   h1{
     color: yellow; 
     font-family: 'Star Wars', sans-serif; 
-    
+    -webkit-text-stroke: 2px rgb(255, 0, 0);
   }
