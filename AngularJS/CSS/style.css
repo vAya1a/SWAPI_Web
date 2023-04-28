@@ -1,0 +1,53 @@
+body{
+    background-color: black;
+}
+
+.table-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
+table {
+    background-color: black;
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid white;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #222;
+  }
+  
+  tr:hover {
+    background-color: #444;
+  }
+
+  h1{
+
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+  }
+
+  .btn-delete {
+    background-color: rgb(204, 21, 21);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-delete:hover {
+    background-color: darkred;
+  }
