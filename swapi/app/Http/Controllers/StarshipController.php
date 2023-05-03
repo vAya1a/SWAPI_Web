@@ -105,4 +105,23 @@ class StarshipController extends Controller
         return response()->json($data, 200);
       }
   
+    //RECIBE DATOS Y HACE UNA RELACION DE PILOTO-NAVE
+    public function createPilotShip(Request $request){
+        $data['id_pilot'] = $request['id_pilot'];
+        $data['id_starship'] = $request['id_starship'];
+  
+        PilotStarship::create($data);
+        return response()->json([
+            'message' => "Successfully created",
+            'success' => true
+        ], 200);
+      }
+    
+    public function deletePilotShip($id){
+      $res = PilotStarship::find($id)->delete();
+      return response()->json([
+          'message' => "Successfully deleted",
+          'success' => true
+      ], 200);
+    }
 }

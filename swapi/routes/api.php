@@ -43,4 +43,7 @@ Route::prefix('starship')->group(function () {
 //METODOS PARA MANEJO DE PILOTOS ASOCIADOS A NAVES
 Route::prefix('pilotShip')->group(function () {
     Route::get('/',[ StarshipController::class, 'getPilotShip']);
+    Route::get('/{id}',[ StarshipController::class, 'getShipPilots']);
+    Route::post('/',[ StarshipController::class, 'createPilotShip']);
+    Route::delete('/{id}',[ StarshipController::class, 'deletePilotShip']);
 });

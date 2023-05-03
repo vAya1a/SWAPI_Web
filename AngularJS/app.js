@@ -23,3 +23,34 @@ myApp.controller('PilotController', function($scope, $http) {
     };
 
 });
+
+myApp.controller('StarshipController', function($scope, $http) {
+
+    // Obtenemos la lista completa de naves
+    $http.get('http://localhost/api/starship').then(function(response) {
+        $scope.starships = response.data;
+    }, function(error) {
+        console.log(error);
+    });
+
+    // Función para eliminar una nave
+    $scope.deleteStarship = function(starship) {
+        $http.delete('http://localhost/api/starship/' + starship.id).then(function(response) {
+            // Eliminamos la nave de la lista localmente
+            var index = $scope.starships.indexOf(starship);
+            if (index !== -1) {
+                $scope.starships.splice(index, 1);
+            }
+        }, function(error) {
+            console.log(error);
+        });
+    };
+
+    $scope.getPilotShip = function (starship) {
+        $http.get('http://localhost/api/pilotShip/' + starship.id).then(function(response) {
+        $scope.pilotShips = response.data;
+    }, function(error) {
+        console.log(error);
+    });
+    };
+});
