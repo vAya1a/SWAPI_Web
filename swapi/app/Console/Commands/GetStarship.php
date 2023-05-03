@@ -119,7 +119,7 @@ class GetStarship extends Command
                             $pilotShip = new PilotStarship();
                             
                             //CASTEO LOS DATOS PARA METERLOS EN LA TABLA pilot_statships
-                            //LOS ARRAYS EMPIEZAN EN INDICE 0, LAS BD EN INDICE 1, COSAS QUE PASAN
+                            //LOS ARRAYS EMPIEZAN EN INDICE 0, LAS BD EN INDICE 1, PASAN QUE COSAS
 
                             if($page==1){
                                 $shipId = $i+1;
