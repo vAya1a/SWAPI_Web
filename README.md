@@ -5,6 +5,7 @@ DAW/DAM - Proyecto de formación ([Labordequipo](https://job.labordequipo.es/202
 - [Participantes](#participantes)
 - [Descripción](#descripción)
 - [Laravel](#laravel)
+- [AngularJS](#angularjs)
 
 # Participantes 
 
