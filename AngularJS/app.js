@@ -49,6 +49,18 @@ myApp.controller('StarshipController', function($scope, $http) {
     $scope.getPilotShip = function (starship) {
         $http.get('http://localhost/api/pilotShip/' + starship.id).then(function(response) {
         $scope.pilotShips = response.data;
+        console.log($scope.pilotShips)
+    }, function(error) {
+        console.log(error);
+    });
+    };
+
+    $scope.deletePilotShip = function (pilotShip) {
+        $http.delete('http://localhost/api/pilotShip/' + pilotShip.id).then(function(response) {
+            var index = $scope.pilotShips.indexOf(pilotShip);
+            if (index !== -1) {
+                $scope.pilotShips.splice(index, 1);
+            }
     }, function(error) {
         console.log(error);
     });
