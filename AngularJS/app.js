@@ -46,6 +46,7 @@ myApp.controller('StarshipController', function($scope, $http) {
         });
     };
 
+    // Función para obtener los pilotos asignados a una nave
     $scope.getPilotShip = function (starship) {
         $http.get('http://localhost/api/pilotShip/' + starship.id).then(function(response) {
         $scope.pilotShips = response.data;
@@ -55,8 +56,10 @@ myApp.controller('StarshipController', function($scope, $http) {
     });
     };
 
+    // Función para eliminar la relacion de un piloto y una nave
     $scope.deletePilotShip = function (pilotShip) {
         $http.delete('http://localhost/api/pilotShip/' + pilotShip.id).then(function(response) {
+            // Eliminamos la nave de la lista localmente
             var index = $scope.pilotShips.indexOf(pilotShip);
             if (index !== -1) {
                 $scope.pilotShips.splice(index, 1);

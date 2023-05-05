@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SWAPI</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="app.js" type="text/javascript"></script>
 
@@ -29,53 +29,80 @@
                     <th>MODEL</th>
                     <th>MANUFACTURA</th>
                     <th>CRÉDITOS</th>
-                    <th>OPCIONES</th>
+                    <th colspan="2" style="text-align: center;">OPCIONES</th>
                 </tr>
                 <tr ng-repeat="starship in starships">
                     <td>{{starship.name}}</td>
                     <td>{{starship.model}}</td>
                     <td>{{starship.manufacturer}}</td>
                     <td>{{starship.credits}}</td>
+                    <td><button type="button" class="btn btn-outline-success" ng-controler="PilotController" data-bs-toggle="modal"
+                            data-bs-target="#asignarModal">Asignar</button></td>
                     <td>
-                        <button type="button" class="btn btn-primary" ng-click="getPilotShip(starship)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-outline-info" ng-click="getPilotShip(starship)"
+                            data-bs-toggle="modal" data-bs-target="#pilotModal">
                             Pilotos
                         </button>
                     </td>
-                    
+
                 </tr>
             </table>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal de listado de pilotos asignados -->
+        <div class="modal fade" id="pilotModal" tabindex="-1" aria-labelledby="pilotModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: grey;">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel" style="margin-top: 0;">Pilotos Asignados a {{starship.name}}</h1>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="pilotModalLabel" style="margin-top: 0;">Pilotos Asignados</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
                             <table class="table">
-                              <tr>
+                                <tr>
                                 <tr>
                                     <th>NOMBRE</th>
                                     <th>AÑO DE NACIMIENTO</th>
                                     <th>GÉNERO</th>
                                     <th>OPCIONES</th>
-                                  </tr>
-                                  <tr ng-repeat="pilotship in pilotShips">
+                                </tr>
+                                <tr ng-repeat="pilotship in pilotShips">
                                     <td>{{pilotship.pilot.name}}</td>
                                     <td>{{pilotship.pilot.birth_year}}</td>
                                     <td>{{pilotship.pilot.gender}}</td>
-                                    <td><button class="btn-delete" ng-click="deletePilotShip(pilotship)">Designar</button></td>
-                                  </tr>
-                              </tr>
+                                    <td><button type="button" class="btn btn-outline-danger"
+                                            ng-click="deletePilotShip(pilotship)">Designar</button></td>
+                                </tr>
+                                </tr>
                             </table>
-                          </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de asignación de pilotos -->
+    <div class="modal fade" id="asignarModal" tabindex="-1" role="dialog" aria-labelledby="asignarModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="pilotModalLabel" style="margin-top: 0;">Asignar Pilotos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="{{pilot.id}}">{{pilot.name}}</option>
+                      </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
