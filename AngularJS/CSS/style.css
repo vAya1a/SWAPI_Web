@@ -14,6 +14,17 @@
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
+
+h2{
+  color: yellow;
+  font-weight: 900;
+  font-family: 'SF Distant Galaxy', sans-serif;
+}
+
+.container{
+  margin-bottom: 30px;
+}
+
 .estrellas {
   position:absolute;
   top:0;
@@ -95,5 +106,5 @@ table {
 
   h1{
     color: yellow; 
-    font-family: 'Star Wars', sans-serif;
+    font-family: 'SF Distant Galaxy', sans-serif;
   }
