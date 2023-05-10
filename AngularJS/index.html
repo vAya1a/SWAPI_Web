@@ -88,21 +88,23 @@
         <!-- Modal de asignación de pilotos -->
         <div class="modal fade" id="asignarModal" tabindex="-1" aria-labelledby="asignarModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content" ng-controller="PilotController">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="asignarModalLabel" style="margin-top: 0;">{{verNave.name}} -
                             Asignar Piloto</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <select class="form-select" aria-label="Default select example" ng-controller="PilotController">
+                        Selecciona un piloto : {{selectedPilot}}
+                        <hr>
+                        <select class="form-control" aria-label="Default select example" ng-model="selectedPilot">
                             <option value="" selected disabled>Open this select menu</option>
                             <option ng-repeat="pilot in pilots" value="{{pilot.id}}">{{pilot.name}}</option>
                         </select>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success" ng-click="">Asignar</button>
+                        <button type="submit" class="btn btn-success" ng-click="assignPilot(selectedPilot)">Asignar</button>
                     </div>
                 </div>
             </div>

@@ -22,12 +22,24 @@ myApp.controller('PilotController', function ($scope, $http) {
         });
     };
 
-
+    $scope.assignPilot = function(selectedPilot) {
+        var data = {
+            id_pilot: selectedPilot,
+            id_starship: $scope.verNave.id
+        };
+        console.log(selectedPilot);
+        $http.post('http://localhost/api/pilotShip', data).then(function(response){
+            // Realiza alguna acción después de crear la relación, si es necesario.
+        }, function (error) {
+            console.log("Ha habido un error");
+        });
+    };
 
 });
 
 myApp.controller('StarshipController', function ($scope, $http) {
 
+    
     // Obtenemos la lista completa de naves
     $http.get('http://localhost/api/starship').then(function (response) {
         $scope.starships = response.data;
@@ -106,10 +118,9 @@ $scope.convertToBase15 = function(price) {
 
   // Función para crear la relacion entre un piloto y una nave.
 
-  $scope.create = function (starship , pilot) {
-    $http.post('http://localhost/api/pilotShip').then(function (response){
-    
-    });
-  };
+  
+
+
+
 
 });
