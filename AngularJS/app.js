@@ -10,7 +10,7 @@ myApp.controller('PilotController', function ($scope, $http) {
             icon: 'error',
             title: 'Oops...',
             text: 'Something went wrong!',
-            footer: '<a href="">Why do I have this issue?</a>'
+            
           })
     });
 
@@ -27,7 +27,7 @@ myApp.controller('PilotController', function ($scope, $http) {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
+                
               })
         });
     };
@@ -79,7 +79,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
+                
               })
         });
     };
@@ -97,7 +97,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
+                
               })
         });
     };
@@ -112,7 +112,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
+                
               })
         });
         $http.get('http://localhost/api/pilotShip/' + starship.id).then(function (response) {
@@ -122,7 +122,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
+                
               })
         });
     };
@@ -157,7 +157,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Something went wrong!',
-                        footer: '<a href="">Why do I have this issue?</a>'
+                        
                       })
                 });
             }else{

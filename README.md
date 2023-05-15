@@ -6,6 +6,7 @@ DAW/DAM - Proyecto de formación ([Labordequipo](https://job.labordequipo.es/202
 - [Descripción](#descripción)
 - [Laravel](#laravel)
 - [AngularJS](#angularjs)
+- [HTTP](#http)
 
 # Participantes 
 
@@ -23,6 +24,8 @@ Para ello utilizaremos dos frameworks:
 **[Laravel](#laravel)**, que es un framework de [PHP](https://www.php.net/manual/es/), y lo utilizaremos para la realización del backend, es decir, trabajaremos en el lado del servidor(lógica y funcionalidad) con este framework.
 
 **[AngularJS](#angularjs)**, que es un framework de [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), y lo utilizaremos para la realización del frontend, basicamente la parte la cual el cliente interactuara con la página web.
+
+Para la transferencia de información entre los dos frameworks usaremos **[HTTP](https://keepcoding.io/blog/que-es-el-protocolo-http/)** que es el lenguaje común que permite que los navegadores web y los servidores se comuniquen entre sí.
 
 
 # Laravel
@@ -54,9 +57,20 @@ Como no hay nada perfecto, es evidente que Laravel también tiene algunos defect
 5. Fuerte dependencia de la consola de comandos y de herramientas de terceros (composer, vagrant, npm…). Esto, por supuesto, solo es un inconveniente para las personas que tengan alergia a la consola de comandos.
 
 # AngularJS
+
 **[AngularJS](http://expertojava.ua.es/experto/restringido/2015-16/angular/angularjs.pdf)** es un framework de JavaScript de código abierto, mantenido por Google, que ayuda con la gestión de lo que se conoce como aplicaciones de una sola página (en inglés, single-page applications). Su objetivo es aumentar las aplicaciones basadas en navegador con (MVC) Capacidad de Modelo Vista Controlador, en un esfuerzo para hacer que el desarrollo y las pruebas más fáciles.
 
 ## ¿Single-page web applications?
 Una single-page web application (en adelante SPA), es una aplicación web que se ejecuta completamente en una única página web, con el objetivo de proporcionar una experiencia más fluida y similar a la que nos encontraríamos en una aplicación de escritorio.
 
 En una aplicación SPA, todos los datos necesarios, como el HTML, CSS o JavaScript, se cargan y añaden en la página cuando es necesario, normalmente respondiendo a acciones del usuario. En ningún momento del proceso veremos una recarga total de la página. Para esto, como os imaginaréis a lo largo del proceso de ejecución de una aplicación SPA existe una comunicación con el servidor en segundo plano.
+
+# HTTP
+
+HTTP (Hypertext Transfer Protocol) es un protocolo de comunicación utilizado para la transferencia de información en la World Wide Web (WWW). Es el lenguaje común que permite que los navegadores web y los servidores se comuniquen entre sí y facilita la solicitud y la entrega de recursos, como páginas web, imágenes, videos y otros archivos en la internet.
+
+HTTP funciona según un modelo cliente-servidor, donde el cliente, generalmente un navegador web, envía solicitudes HTTP al servidor y espera respuestas. Una solicitud HTTP consta de un método (como GET, POST, PUT o DELETE) que indica la acción que se debe realizar, una URL (Uniform Resource Locator) que identifica el recurso solicitado y opcionalmente un cuerpo que contiene datos adicionales. El servidor responde a la solicitud con un código de estado que indica si la solicitud fue exitosa (como 200 OK) o si ocurrió algún error (como 404 Not Found).
+
+HTTP también permite la transferencia segura de datos a través de HTTPS (HTTP Secure), que utiliza una capa adicional de cifrado para proteger la confidencialidad e integridad de la información transmitida.
+
+En resumen, HTTP es el protocolo fundamental que permite la comunicación entre navegadores web y servidores, facilitando la transferencia de recursos en la World Wide Web. Es ampliamente utilizado en internet y es la base de la navegación y la interacción en línea que experimentamos a diario.
