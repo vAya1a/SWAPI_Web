@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', []);
 myApp.controller('PilotController', function ($scope, $http) {
 
     // Obtenemos la lista completa de pilotos
-    $http.get('http://localhost/api/pilot').then(function (response) {
+    $http.get('http://34.200.116.5/api/pilot').then(function (response) {
         $scope.pilots = response.data;
     }, function (error) {
         Swal.fire({
@@ -16,7 +16,7 @@ myApp.controller('PilotController', function ($scope, $http) {
 
     // Función para eliminar un piloto
     $scope.deletePilot = function (pilot) {
-        $http.delete('http://localhost/api/pilot/' + pilot.id).then(function (response) {
+        $http.delete('http://34.200.116.5/api/pilot/' + pilot.id).then(function (response) {
             // Eliminamos el piloto de la lista localmente
             var index = $scope.pilots.indexOf(pilot);
             if (index !== -1) {
@@ -32,12 +32,15 @@ myApp.controller('PilotController', function ($scope, $http) {
         });
     };
 
+    // Función la cual obtiene el id del piloto y de la nave y realiza la asignación
     $scope.assignPilot = function (selectedPilot) {
+        //Obtiene los id's necesarios
         var data = {
             id_pilot: selectedPilot,
             id_starship: $scope.verNave.id
         };
-        $http.post('http://localhost/api/pilotShip', data).then(function (response) {
+        // Realiza una petición HTTP post para realizar la asignación del piloto y saltará una alerta dependiendo de si se realizó o no correctamente.
+        $http.post('http://34.200.116.5/api/pilotShip', data).then(function (response) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -60,7 +63,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
 
 
     // Obtenemos la lista completa de naves
-    $http.get('http://localhost/api/starship').then(function (response) {
+    $http.get('http://34.200.116.5/api/starship').then(function (response) {
         $scope.starships = response.data;
     }, function (error) {
         Swal.fire({
@@ -72,7 +75,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
 
     //Función para mostrar una nave por su id
     $scope.showStarship = function (starship) {
-        $http.get('http://localhost/api/starship/' + starship.id).then(function (response) {
+        $http.get('http://34.200.116.5/api/starship/' + starship.id).then(function (response) {
             $scope.verNave = response.data
         }, function (error) {
             Swal.fire({
@@ -86,7 +89,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
 
     // Función para eliminar una nave
     $scope.deleteStarship = function (starship) {
-        $http.delete('http://localhost/api/starship/' + starship.id).then(function (response) {
+        $http.delete('http://34.200.116.5/api/starship/' + starship.id).then(function (response) {
             // Eliminamos la nave de la lista localmente
             var index = $scope.starships.indexOf(starship);
             if (index !== -1) {
@@ -105,7 +108,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
     // Función para obtener los pilotos asignados a una nave
     $scope.getPilotShip = function (starship) {
         // mostrar una nave por su id
-        $http.get('http://localhost/api/starship/' + starship.id).then(function (response) {
+        $http.get('http://34.200.116.5/api/starship/' + starship.id).then(function (response) {
             $scope.sNave = response.data
         }, function (error) {
             Swal.fire({
@@ -115,7 +118,8 @@ myApp.controller('StarshipController', function ($scope, $http) {
                 
               })
         });
-        $http.get('http://localhost/api/pilotShip/' + starship.id).then(function (response) {
+        // Obtiene los pilotos asignados a una nave
+        $http.get('http://34.200.116.5/api/pilotShip/' + starship.id).then(function (response) {
             $scope.pilotShips = response.data;
         }, function (error) {
             Swal.fire({
@@ -129,6 +133,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
 
     // Función para eliminar la relacion de un piloto y una nave
     $scope.deletePilotShip = function (pilotShip) {
+        // Te salta una alerta la cual te cuestiona si estás seguro de eliminar la relacion entre pìloto y nave
         Swal.fire({
             title: '¿Estas seguro de designarlo?',
             text: "¡No podrás revertirlo!",
@@ -137,7 +142,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: '¡Sí, designalo!',
-            
+            //Si se confirma te salta la alerta de confirmación mientras se realiza la consulta HTTP delete 
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
@@ -146,7 +151,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
                     'success'
                 )
 
-                $http.delete('http://localhost/api/pilotShip/' + pilotShip.id).then(function (response) {
+                $http.delete('http://34.200.116.5/api/pilotShip/' + pilotShip.id).then(function (response) {
                     // Eliminamos la nave de la lista localmente
                     var index = $scope.pilotShips.indexOf(pilotShip);
                     if (index !== -1) {
@@ -160,6 +165,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
                         
                       })
                 });
+                // Si se cancela saltara la alerta de salvado
             }else{
                 swal.fire(
                   'Cancelado',
