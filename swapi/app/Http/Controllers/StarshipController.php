@@ -116,7 +116,7 @@ class StarshipController extends Controller
             'success' => true
         ], 200);
       }
-    
+    // Elimina una relación piloto-nave
     public function deletePilotShip($id){
       $res = PilotStarship::find($id)->delete();
       return response()->json([

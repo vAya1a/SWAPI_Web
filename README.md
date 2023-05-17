@@ -25,7 +25,7 @@ Para ello utilizaremos dos frameworks:
 
 **[AngularJS](#angularjs)**, que es un framework de [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), y lo utilizaremos para la realización del frontend, basicamente la parte la cual el cliente interactuara con la página web.
 
-Para la transferencia de información entre los dos frameworks usaremos **[HTTP](https://keepcoding.io/blog/que-es-el-protocolo-http/)** que es el lenguaje común que permite que los navegadores web y los servidores se comuniquen entre sí.
+Para la transferencia de información entre los dos frameworks usaremos **[HTTP](https://developer.mozilla.org/es/docs/Web/HTTP)** que es el lenguaje común que permite que los navegadores web y los servidores se comuniquen entre sí.
 
 
 # Laravel
@@ -67,10 +67,10 @@ En una aplicación SPA, todos los datos necesarios, como el HTML, CSS o JavaScri
 
 # HTTP
 
-HTTP (Hypertext Transfer Protocol) es un protocolo de comunicación utilizado para la transferencia de información en la World Wide Web (WWW). Es el lenguaje común que permite que los navegadores web y los servidores se comuniquen entre sí y facilita la solicitud y la entrega de recursos, como páginas web, imágenes, videos y otros archivos en la internet.
+**[HTTP](https://developer.mozilla.org/es/docs/Web/HTTP) (Hypertext Transfer Protocol)** es un protocolo de comunicación utilizado para la transferencia de información en la World Wide Web (WWW). Es el lenguaje común que permite que los navegadores web y los servidores se comuniquen entre sí y facilita la solicitud y la entrega de recursos, como páginas web, imágenes, videos y otros archivos en la internet.
 
 HTTP funciona según un modelo cliente-servidor, donde el cliente, generalmente un navegador web, envía solicitudes HTTP al servidor y espera respuestas. Una solicitud HTTP consta de un método (como GET, POST, PUT o DELETE) que indica la acción que se debe realizar, una URL (Uniform Resource Locator) que identifica el recurso solicitado y opcionalmente un cuerpo que contiene datos adicionales. El servidor responde a la solicitud con un código de estado que indica si la solicitud fue exitosa (como 200 OK) o si ocurrió algún error (como 404 Not Found).
 
-HTTP también permite la transferencia segura de datos a través de HTTPS (HTTP Secure), que utiliza una capa adicional de cifrado para proteger la confidencialidad e integridad de la información transmitida.
+HTTP también permite la transferencia segura de datos a través de **[HTTPS](https://www.cloudflare.com/es-es/learning/ssl/what-is-https/) (HTTP Secure)**, que utiliza una capa adicional de cifrado para proteger la confidencialidad e integridad de la información transmitida.
 
 En resumen, HTTP es el protocolo fundamental que permite la comunicación entre navegadores web y servidores, facilitando la transferencia de recursos en la World Wide Web. Es ampliamente utilizado en internet y es la base de la navegación y la interacción en línea que experimentamos a diario.
