@@ -10,6 +10,9 @@ var myApp = angular.module('myApp', ["ngRoute"])
     .when("/naves",{
         templateUrl: "starship.html"
     })
+    .when("/about", {
+        templateUrl: "about.html"
+    })
 });
 
 myApp.controller('PilotController', function ($scope, $http) {
