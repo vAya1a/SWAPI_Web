@@ -1,4 +1,16 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ["ngRoute"])
+.config(function ($routeProvider) {
+    $routeProvider
+    .when("/",{
+        templateUrl: "home.html"
+    })
+    .when("/pilotos", {
+        templateUrl: "index2.html"
+    })
+    .when("/naves",{
+        templateUrl: "starship.html"
+    })
+});
 
 myApp.controller('PilotController', function ($scope, $http) {
 
@@ -16,20 +28,46 @@ myApp.controller('PilotController', function ($scope, $http) {
 
     // Función para eliminar un piloto
     $scope.deletePilot = function (pilot) {
-        $http.delete('http://34.200.116.5/api/pilot/' + pilot.id).then(function (response) {
+        Swal.fire({
+            title: '¿Estas seguro de designarlo?',
+            text: "¡No podrás revertirlo!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Sí, designalo!',
+            //Si se confirma te salta la alerta de confirmación mientras se realiza la consulta HTTP delete 
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    '¡Designado!',
+                    'El piloto fué despedido.',
+                    'success'
+                )
+
+                $http.delete('http://34.200.116.5/api/pilot/' + pilot.id).then(function (response) {
             // Eliminamos el piloto de la lista localmente
             var index = $scope.pilots.indexOf(pilot);
             if (index !== -1) {
                 $scope.pilots.splice(index, 1);
             }
-        }, function (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                
-              })
-        });
+                }, function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        
+                      })
+                });
+                // Si se cancela saltara la alerta de salvado
+            }else{
+                swal.fire(
+                  'Cancelado',
+                  'Tu piloto está a salvo :)',
+                  'error'
+                )
+              }
+        })
     };
 
     // Función la cual obtiene el id del piloto y de la nave y realiza la asignación
@@ -192,11 +230,12 @@ myApp.controller('StarshipController', function ($scope, $http) {
         return base15Price;
     };
 
-    // Función para crear la relacion entre un piloto y una nave.
-
-
-
-
-
 
 });
+
+angular.controller('NavbarController', ['$location', function($location) {
+    this.isActive = function(path) {
+      return ($location.path() === path);
+    };
+  }]);
+  
