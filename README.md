@@ -74,3 +74,20 @@ HTTP funciona según un modelo cliente-servidor, donde el cliente, generalmente 
 HTTP también permite la transferencia segura de datos a través de **[HTTPS](https://www.cloudflare.com/es-es/learning/ssl/what-is-https/) (HTTP Secure)**, que utiliza una capa adicional de cifrado para proteger la confidencialidad e integridad de la información transmitida.
 
 En resumen, HTTP es el protocolo fundamental que permite la comunicación entre navegadores web y servidores, facilitando la transferencia de recursos en la World Wide Web. Es ampliamente utilizado en internet y es la base de la navegación y la interacción en línea que experimentamos a diario.
+
+## http-server
+
+**[http-server](https://www.npmjs.com/package/http-server)** es un paquete de Node.js que permite crear un servidor web simple para servir archivos estáticos en tu máquina local. Proporciona una forma rápida y sencilla de configurar un servidor web local sin necesidad de configuraciones complejas.
+
+Al utilizar http-server, puedes navegar por los archivos en un directorio específico a través de un navegador web. Esto es útil cuando deseas probar tu sitio web o aplicación en tu máquina local antes de implementarla en un servidor real.
+
+El paquete http-server se instala globalmente utilizando npm (Node Package Manager). Después de la instalación, puedes ejecutar el comando http-server desde la línea de comandos en el directorio que deseas servir. El servidor se inicia y muestra la URL local a la que puedes acceder desde tu navegador para ver los archivos.
+
+Algunos de los beneficios de utilizar http-server son:
+
+1. Configuración rápida: No es necesario configurar un servidor web completo, solo se necesita un comando para iniciar el servidor.
+2. Servicio de archivos estáticos: Sirve archivos HTML, CSS, JavaScript, imágenes y otros archivos estáticos desde el directorio especificado.
+3. Soporte de recarga automática: Puedes habilitar la recarga automática del navegador cuando los archivos cambien.
+4. Fácil de usar: No requiere conocimientos avanzados de configuración de servidores web.
+
+En resumen, http-server es una herramienta útil para crear rápidamente un servidor web local y servir archivos estáticos en tu máquina durante el desarrollo y pruebas de tu sitio web o aplicación.
