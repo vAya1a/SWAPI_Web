@@ -16,9 +16,17 @@
 
 <body>
   <div class="estrellas"></div>
-  <h1 style="padding-top: 50px;">Pruebas de angular - Cuaderno de pilotos</h1>
-  <div ng-controller="PilotController">
-    <div class="table-wrapper" style="padding-bottom: 50px;">
+  <h1 style="padding-top: 50px;">Cuaderno de pilotos</h1>
+  <div ng-controller="PilotController" style="padding-bottom: 100px;">
+    <div class="row mt-2" style="padding-bottom: 10px; justify-content: center">
+      <div class="col-sm-6">
+        <form class="input-group" enctype="multipart/form-data">
+          <input class="form-control" type="text" placeholder="Búsqueda..." ng-model="buscar">
+        </form>
+      </div>
+    </div>
+
+    <div class="table-wrapper" >
       <table>
         <tr>
           <th>NOMBRE</th>
@@ -26,7 +34,7 @@
           <th>GÉNERO</th>
           <th>OPCIONES</th>
         </tr>
-        <tr ng-repeat="pilot in pilots">
+        <tr ng-repeat="pilot in pilots | filter:buscar">
           <td>{{pilot.name}}</td>
           <td>{{pilot.birth_year}}</td>
           <td>{{pilot.gender}}</td>

@@ -17,6 +17,10 @@ var myApp = angular.module('myApp', ["ngRoute"])
 
 myApp.controller('PilotController', function ($scope, $http) {
 
+    $scope.sortType = 'nombre';
+    $scope.sortReverse = false;
+    $scope.buscar = '';
+
     // Obtenemos la lista completa de pilotos
     $http.get('http://34.200.116.5/api/pilot').then(function (response) {
         $scope.pilots = response.data;
@@ -101,7 +105,9 @@ myApp.controller('PilotController', function ($scope, $http) {
 });
 
 myApp.controller('StarshipController', function ($scope, $http) {
-
+    $scope.sortType = 'nombre';
+    $scope.sortReverse = false;
+    $scope.buscar = '';
 
     // Obtenemos la lista completa de naves
     $http.get('http://34.200.116.5/api/starship').then(function (response) {
@@ -113,6 +119,7 @@ myApp.controller('StarshipController', function ($scope, $http) {
             text: 'Quizas no hay datos'
           })
     });
+
 
     //Función para mostrar una nave por su id
     $scope.showStarship = function (starship) {

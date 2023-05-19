@@ -10,101 +10,22 @@
 </head>
 
 <body>
-    <!-- Buscador con botones laterales de añadir y eliminar -->
-
-    <div class="breadcrumb position-relative" style="padding: 20px;">
-        <div class="position-absolute top-0 start-50 translate-middle">
-            
-        </div>
-    </div>
-
-    <div class="row mt-4" style="padding: 50px; margin-left: 75px; margin-right: 75px;">
-        <div class="col-md-auto mb-2">
-            <a href="#" class="btn btn-success" title="Nuevo" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fas fa-plus fa-fw" aria-hidden="true"></i>
-                <span class="d-none d-xl-inline-block">Nueva Nave</span>
-            </a>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true" data-bs-keyboard="false">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Añadir Nave</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" method="POST" enctype="multipart/form-data"
-                                class="needs-validation" novalidate>
-                                @csrf
-                                <div class="row mt-3">
-                                    <div class="col-md-12">
-                                        <label for="name" class="form-label">Nombre de la nave</label>
-                                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                                            name="name" required>
-                                        <div class="invalid-feedback">
-                                            Nombre del recurso incorrecto
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-12 ms-auto">
-                                        <label for="genero-pelicula" class="form-label">Descripción</label>
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a comment here"
-                                                id="floatingTextarea" name="description"
-                                                style="height: 100px"></textarea>
-                                            <label for="floatingTextarea">Descripción</label>
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            Descripción del recurso incorrecta
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4 mt-2">
-                                    <div class="input-group mb-4">
-                                        <input type="file" class="form-control" id="upload-files" name="imagen" required
-                                            accept="image/*">
-                                        <label class="input-group-text" for="upload-files">Subir</label>
-                                        <div class="invalid-feedback">
-                                            Debes de subir una imagen
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer mt-2">
-                                    <input type="submit" class="btn btn-primary" value="Añadir alérgeno">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm mb-2">
-            <form class="input-group" action="" method="POST"
-                enctype="multipart/form-data">
-                <input class="form-control" type="text" name="query" value="" autocomplete="off" placeholder="Buscar">
-                <span class="input-group-append">
-                    <button type="submit" class="btn btn-secondary" id="btn-search">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                    </button>
-                </span>
-            </form>
-        </div>
-        <div class="col-sm-auto text-right mb-2">
-            <a type="input" class="btn btn-danger" onclick=";">
-                <i class="fa-solid fa-trash"></i> Eliminar Recursos
-            </a>
-        </div>
-    </div>
-
     <!-- Fondo de la pagina web -->
 
     <div class="estrellas"></div>
 
-  <h1>Pruebas de angular - Cuaderno de naves</h1>
+    <h1 style="padding-top: 50px;">Cuaderno de naves</h1>
     <!-- Tablas con los datos de su nave con dos botones -->
 
-    <div class="container" ng-controller="StarshipController">
+    <div class="container" style="padding-bottom: 60px;" ng-controller="StarshipController">
+        <div class="row mt-4" style="margin-left: 75px; margin-right: 75px; padding-bottom: 10px;">
+            <div class="col-sm mb-2">
+                <form class="input-group" enctype="multipart/form-data">
+                    <input class="form-control" type="text" placeholder="Busqueda..." ng-model="buscar">
+                </form>
+            </div>
+        </div>
+
         <div class="table-responsive">
             <table>
                 <tr>
@@ -114,7 +35,7 @@
                     <th>CRÉDITOS</th>
                     <th colspan="2" style="text-align: center;">OPCIONES</th>
                 </tr>
-                <tr ng-repeat="starship in starships">
+                <tr ng-repeat="starship in starships|filter:buscar">
                     <td>{{starship.name}}</td>
                     <td>{{starship.model}}</td>
                     <td>{{starship.manufacturer}}</td>
