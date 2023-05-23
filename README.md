@@ -6,6 +6,7 @@ DAW/DAM - Proyecto de formación ([Labordequipo](https://job.labordequipo.es/202
 - [Descripción](#descripción)
 - [Laravel](#laravel)
 - [AngularJS](#angularjs)
+- [Cordova](#cordova)
 - [HTTP](#http)
 
 # Participantes 
@@ -64,6 +65,22 @@ Como no hay nada perfecto, es evidente que Laravel también tiene algunos defect
 Una single-page web application (en adelante SPA), es una aplicación web que se ejecuta completamente en una única página web, con el objetivo de proporcionar una experiencia más fluida y similar a la que nos encontraríamos en una aplicación de escritorio.
 
 En una aplicación SPA, todos los datos necesarios, como el HTML, CSS o JavaScript, se cargan y añaden en la página cuando es necesario, normalmente respondiendo a acciones del usuario. En ningún momento del proceso veremos una recarga total de la página. Para esto, como os imaginaréis a lo largo del proceso de ejecución de una aplicación SPA existe una comunicación con el servidor en segundo plano.
+
+# Cordova
+
+**[Cordova](https://cordova.apache.org/docs/en/11.x/)** es un framework de desarrollo de aplicaciones móviles multiplataforma que permite crear aplicaciones nativas utilizando tecnologías web como HTML, CSS y JavaScript. También conocido como Apache Cordova o PhoneGap, Cordova proporciona un entorno de desarrollo consistente para crear aplicaciones móviles que pueden ejecutarse en diferentes plataformas, como iOS, Android y Windows.
+
+La principal ventaja de utilizar Cordova es la capacidad de escribir una vez el código y luego desplegarlo en múltiples plataformas móviles sin tener que reescribirlo por completo. Esto ahorra tiempo y recursos, ya que los desarrolladores pueden aprovechar su conocimiento de tecnologías web existentes para crear aplicaciones móviles completas.
+
+Cordova utiliza un enfoque basado en WebView, donde la interfaz de usuario de la aplicación se muestra en un navegador web embebido dentro de una aplicación nativa. Esto permite acceder a las capacidades del dispositivo a través de JavaScript, utilizando una serie de plugins proporcionados por Cordova. Estos plugins permiten el acceso a características como la cámara, el GPS, los contactos, las notificaciones push y mucho más.
+
+Al utilizar Cordova, los desarrolladores pueden crear una experiencia de usuario nativa al aprovechar las características y los componentes específicos de cada plataforma. Además, Cordova ofrece un conjunto de herramientas de desarrollo, como la Cordova CLI (Command Line Interface) y el Cordova WebView, que facilitan la creación, prueba y depuración de aplicaciones móviles.
+
+Cordova también cuenta con una activa comunidad de desarrolladores que contribuyen con plugins y recursos adicionales, lo que amplía aún más las capacidades y funcionalidades disponibles para las aplicaciones creadas con Cordova.
+
+Si bien Cordova proporciona una solución efectiva para el desarrollo de aplicaciones móviles multiplataforma, es importante tener en cuenta que, debido a su naturaleza basada en WebView, puede haber limitaciones en el rendimiento y la experiencia de usuario en comparación con las aplicaciones nativas. Sin embargo, para muchas aplicaciones, Cordova ofrece una opción viable y rentable para llegar a múltiples plataformas sin tener que desarrollar y mantener aplicaciones nativas separadas.
+
+En resumen, Cordova es un framework de desarrollo de aplicaciones móviles que permite a los desarrolladores crear aplicaciones nativas utilizando tecnologías web. Ofrece la ventaja de escribir código una vez y desplegarlo en múltiples plataformas, lo que ahorra tiempo y recursos. Con su enfoque basado en WebView y una amplia gama de plugins, Cordova brinda acceso a las características del dispositivo y una experiencia de usuario nativa.
 
 # HTTP
 
