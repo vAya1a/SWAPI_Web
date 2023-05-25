@@ -29,7 +29,10 @@ myApp.controller('PilotController', function ($scope, $http) {
     // Obtenemos la lista completa de pilotos
     $http.get('http://34.200.116.5/api/pilot').then(function (response) {
         $scope.pilots = response.data;
-/*
+/*  
+        Este codigo comentado tiene la función de obtener La página inicial(de los datos) ,muestra el número de datos(en este caso pilotos) que se le ha
+        asignado y optiene el número de páginas que se requiere para la paginación. 
+
         $scope.numOfPages = function () {
             return Math.ceil($scope.pilots.length / $scope.itemsPerPage);
         };
@@ -40,7 +43,6 @@ myApp.controller('PilotController', function ($scope, $http) {
              
             $scope.pilots = $scope.pilots.slice(begin, end);
             });
-
 */
     }, function (error) {
         Swal.fire({
