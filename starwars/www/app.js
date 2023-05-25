@@ -1,11 +1,11 @@
-var myApp = angular.module('myApp', ["ngRoute"])
+var myApp = angular.module('myApp', ['ngRoute'])
 .config(function ($routeProvider) {
     $routeProvider
     .when("/",{
         templateUrl: "home.html"
     })
     .when("/pilotos", {
-        templateUrl: "index2.html"
+        templateUrl: "pilot.html"
     })
     .when("/naves",{
         templateUrl: "starship.html"
@@ -15,15 +15,33 @@ var myApp = angular.module('myApp', ["ngRoute"])
     })
 });
 
+//Controlador Angular de Pilot
 myApp.controller('PilotController', function ($scope, $http) {
 
     $scope.sortType = 'nombre';
     $scope.sortReverse = false;
     $scope.buscar = '';
 
+    $scope.curPage = 1,
+    $scope.itemsPerPage = 9,
+    $scope.maxSize = 5;
+
     // Obtenemos la lista completa de pilotos
     $http.get('http://34.200.116.5/api/pilot').then(function (response) {
         $scope.pilots = response.data;
+
+        $scope.numOfPages = function () {
+            return Math.ceil($scope.pilots.length / $scope.itemsPerPage);
+        };
+    
+        $scope.$watch('curPage + numPerPage', function() {
+            var begin = (($scope.curPage - 1) * $scope.itemsPerPage),
+            end = begin + $scope.itemsPerPage;
+             
+            $scope.pilots = $scope.pilots.slice(begin, end);
+            });
+
+
     }, function (error) {
         Swal.fire({
             icon: 'error',
@@ -104,6 +122,7 @@ myApp.controller('PilotController', function ($scope, $http) {
 
 });
 
+// Controlador angular de Starships
 myApp.controller('StarshipController', function ($scope, $http) {
     $scope.sortType = 'nombre';
     $scope.sortReverse = false;
@@ -242,6 +261,8 @@ myApp.controller('StarshipController', function ($scope, $http) {
 
 
 });
+
+//Controlador del Navbar
 
 angular.controller('NavbarController', ['$location', function($location) {
     this.isActive = function(path) {
