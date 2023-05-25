@@ -29,7 +29,7 @@ myApp.controller('PilotController', function ($scope, $http) {
     // Obtenemos la lista completa de pilotos
     $http.get('http://34.200.116.5/api/pilot').then(function (response) {
         $scope.pilots = response.data;
-
+/*
         $scope.numOfPages = function () {
             return Math.ceil($scope.pilots.length / $scope.itemsPerPage);
         };
@@ -41,7 +41,7 @@ myApp.controller('PilotController', function ($scope, $http) {
             $scope.pilots = $scope.pilots.slice(begin, end);
             });
 
-
+*/
     }, function (error) {
         Swal.fire({
             icon: 'error',
@@ -60,12 +60,12 @@ myApp.controller('PilotController', function ($scope, $http) {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: '¡Sí, designalo!',
+            confirmButtonText: '¡Sí, eliminalo!',
             //Si se confirma te salta la alerta de confirmación mientras se realiza la consulta HTTP delete 
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                    '¡Designado!',
+                    '¡Eliminado!',
                     'El piloto fué despedido.',
                     'success'
                 )
