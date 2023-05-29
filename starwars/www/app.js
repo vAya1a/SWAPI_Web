@@ -53,6 +53,20 @@ myApp.controller('PilotController', function ($scope, $http) {
           })
     });
 
+    //Función para mostrar una nave por su id
+    $scope.showPilot = function (pilot) {
+        $http.get('http://34.200.116.5/api/pilot/' + pilot.id).then(function (response) {
+            $scope.verPilot = response.data
+        }, function (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                
+              })
+        });
+    };
+
     // Función para eliminar un piloto
     $scope.deletePilot = function (pilot) {
         Swal.fire({
@@ -120,6 +134,38 @@ myApp.controller('PilotController', function ($scope, $http) {
                 text: 'Something went wrong!',
               })
         });
+        $scope.selectedPilot = '';
+    };
+
+    // Función que restablece el valor del modelo del select
+    $scope.resetSelect = function() {
+        $scope.selectedPilot = ''; // Restablecer el valor del modelo del select
+      };
+
+    // Función que obtiene el id de un piloto y aztualiza su imagen
+    $scope.subirImg = function (verPilot) {
+        
+        var file =  $scope.img;
+
+        var formData = new FormData();
+        formData.append('image', file);
+
+        $http.put('http://34.200.116.5/api/pilot/' + verPilot.id , formData, {headers: { 'Content-Type': undefined }}).then(function (response) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se ha actualizado la imagen',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }, function (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No se pudo actualizar la imagen!',
+              })
+        })
+        
     };
 
 });
@@ -265,10 +311,10 @@ myApp.controller('StarshipController', function ($scope, $http) {
 });
 
 //Controlador del Navbar
-
+/*
 angular.controller('NavbarController', ['$location', function($location) {
     this.isActive = function(path) {
       return ($location.path() === path);
     };
-  }]);
+  }]);*/
   

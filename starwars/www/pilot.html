@@ -13,30 +13,56 @@
   <div class="estrellas"></div>
   <h1 style="padding-top: 50px;">Cuaderno de pilotos</h1>
   <div class="container" ng-controller="PilotController"style="padding-bottom: 60px;">
-    <div class="row mt-2" style="margin-left: 75px; margin-right: 75px; padding-bottom: 10px;">
-      <div class="col-sm-6">
-        <form class="input-group" enctype="multipart/form-data">
-          <input class="form-control" type="text" placeholder="Búsqueda..." ng-model="buscar">
-        </form>
+    <div class="row mt-4" style="margin-left: 75px; margin-right: 75px; padding-bottom: 10px;">
+      <div class="col-sm mb-2">
+          <form class="input-group" enctype="multipart/form-data">
+              <input class="form-control" type="text" placeholder="Busqueda..." ng-model="buscar">
+          </form>
       </div>
     </div>
 
     <div class="table-responsive">
-      <table>
+      <table >
         <tr>
           <th>NOMBRE</th>
           <th>AÑO DE NACIMIENTO</th>
           <th>GÉNERO</th>
-          <th>OPCIONES</th>
+          <th style="text-align: center;">OPCIONES</th>
         </tr>
         <tr ng-repeat="pilot in pilots | filter:buscar">
           <td>{{pilot.name}}</td>
-          <td>{{pilot.birth_year}}</td>
+          <td>Nació en {{pilot.birth_year}}</td>
           <td>{{pilot.gender}}</td>
-          <td><button type="button" class="btn btn-outline-danger" ng-click="deletePilot(pilot)">Delete</button></td>
+          <td style="display: flex; justify-content: center;">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#imgModal" style="margin-right: 10px;" ng-click="showPilot(pilot)">Image</button>
+          <button type="button" class="btn btn-outline-danger" ng-click="deletePilot(pilot)">Delete</button>
+        </td>
         </tr>
       </table>
     </div>
+            <!-- Modal de asignación de pilotos -->
+            <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content" ng-controller="PilotController">
+                      <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="imgModalLabel" style="margin-top: 0;">{{verPilot.name}} -
+                              Imagen Piloto</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="input-group mb-3">
+                          <input type="file" class="form-control" id="inputGroupFile02" ng-model="img">
+                        </div>                        
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <!-- Boton de asignación de un piloto a una nave -->
+                          <button type="submit" class="btn btn-success"
+                              ng-click="subirImg(verPilot)">Subir</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
   </div>
 
 </body>
