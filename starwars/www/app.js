@@ -145,19 +145,23 @@ myApp.controller('PilotController', function ($scope, $http) {
     // Función que obtiene el id de un piloto y aztualiza su imagen
     $scope.subirImg = function (verPilot) {
         
-        var file =  $scope.img;
-
+        /*var file = $scope.img
         var formData = new FormData();
         formData.append('image', file);
 
-        $http.put('http://34.200.116.5/api/pilot/' + verPilot.id , formData, {headers: { 'Content-Type': undefined }}).then(function (response) {
+        $http({
+            method: 'PUT',
+            url: '/api/pilot/' + verPilot.id,
+            data: formData,
+            headers: { 'Content-Type': undefined }
+          }).then(function (response) {*/
             Swal.fire({
                 position: 'top-end',
-                icon: 'success',
-                title: 'Se ha actualizado la imagen',
+                icon: 'error',
+                title: 'Esta función está en periodo de pruebas',
                 showConfirmButton: false,
                 timer: 1500
-            })
+            })/*
         }, function (error) {
             Swal.fire({
                 icon: 'error',
@@ -165,9 +169,14 @@ myApp.controller('PilotController', function ($scope, $http) {
                 text: 'No se pudo actualizar la imagen!',
               })
         })
-        
+        */
     };
 
+    $scope.pbe = function(){
+        Swal.fire({
+            
+        })
+    }
 });
 
 // Controlador angular de Starships
