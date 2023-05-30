@@ -175,7 +175,7 @@ myApp.controller('PilotController', function ($scope, $http) {
     $scope.pbe = function(){
         Swal.fire({
             position: 'top-end',
-                icon: 'error',
+                icon: 'info',
                 title: 'Esta función está en periodo de pruebas',
         })
     }
