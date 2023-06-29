@@ -1,6 +1,6 @@
 # Página Web SWAPI
 
-Proyecto de página web
+Proyecto de página web hecho con AngularJS y Cordova
 
 - [Participantes](#participantes)
 - [Descripción](#descripción)
