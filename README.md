@@ -1,4 +1,4 @@
-# ProyectoLB
+# Página Web SWAPI
 
 Proyecto de página web
 
@@ -18,7 +18,7 @@ Proyecto de página web
 
 # Descripción.
 
-Este es un proyecto donde se realizará una página web para mostrar datos de una API de Star Wars llamado SWAPI.
+Este es un proyecto donde se realizará una página web para mostrar datos de una API de Star Wars llamado [SWAPI](https://swapi.dev/about),.
 
 Para ello utilizaremos dos frameworks:
 
