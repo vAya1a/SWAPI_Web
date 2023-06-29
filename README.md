@@ -1,6 +1,6 @@
 # ProyectoLB
 
-DAW/DAM - Proyecto de formación ([Labordequipo](https://job.labordequipo.es/2022/11/08/operario-a-de-limpieza-para-sustituciones-limpiezas-generales-etc-2-2/))
+Proyecto de página web
 
 - [Participantes](#participantes)
 - [Descripción](#descripción)
@@ -18,7 +18,7 @@ DAW/DAM - Proyecto de formación ([Labordequipo](https://job.labordequipo.es/202
 
 # Descripción.
 
-Este es un proyecto de Formación donde se realizará una página web para mostrar datos de una API de Star Wars llamado SWAPI.
+Este es un proyecto donde se realizará una página web para mostrar datos de una API de Star Wars llamado SWAPI.
 
 Para ello utilizaremos dos frameworks:
 
